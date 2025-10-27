@@ -1,0 +1,153 @@
+import 'package:flutter/material.dart';
+import 'package:pokedex/core/design_system/imports.dart';
+
+extension AppText on Text {
+  /// Função base que constrói o Text com estilo tipográfico padrão.
+  static Text _buildText(
+    String data, {
+    required FontWeight weight,
+    double size = 14,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    TextOverflow? overflow,
+    double? height,
+    TextDecoration? decoration,
+    String? fontFamily,
+  }) {
+    return Text(
+      data,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
+      style: TextStyle(
+        fontFamily: fontFamily ?? 'Roboto',
+        fontSize: size,
+        fontWeight: weight,
+        color: color ?? AppColors.black,
+        height: height,
+        decoration: decoration,
+      ),
+    );
+  }
+
+  /// Texto com peso **regular** (w400)
+  static Text regular(
+    String data, {
+    double size = 14,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    TextOverflow? overflow,
+    double? height,
+    TextDecoration? decoration,
+    String? fontFamily,
+  }) => _buildText(
+    data,
+    weight: FontWeight.w400,
+    size: size,
+    color: color,
+    textAlign: textAlign,
+    maxLines: maxLines,
+    overflow: overflow,
+    height: height,
+    decoration: decoration,
+    fontFamily: fontFamily,
+  );
+
+  /// Texto com peso **medium** (w500)
+  static Text medium(
+    String data, {
+    double size = 14,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    TextOverflow? overflow,
+    double? height,
+    TextDecoration? decoration,
+    String? fontFamily,
+  }) => _buildText(
+    data,
+    weight: FontWeight.w500,
+    size: size,
+    color: color,
+    textAlign: textAlign,
+    maxLines: maxLines,
+    overflow: overflow,
+    height: height,
+    decoration: decoration,
+    fontFamily: fontFamily,
+  );
+
+  /// Texto com peso **semibold** (w600)
+  static Text semiBold(
+    String data, {
+    double size = 14,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    TextOverflow? overflow,
+    double? height,
+    TextDecoration? decoration,
+    String? fontFamily,
+  }) => _buildText(
+    data,
+    weight: FontWeight.w600,
+    size: size,
+    color: color,
+    textAlign: textAlign,
+    maxLines: maxLines,
+    overflow: overflow,
+    height: height,
+    decoration: decoration,
+    fontFamily: fontFamily,
+  );
+
+  /// Texto com peso **bold** (w700)
+  static Text bold(
+    String data, {
+    double size = 14,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    TextOverflow? overflow,
+    double? height,
+    TextDecoration? decoration,
+    String? fontFamily,
+  }) => _buildText(
+    data,
+    weight: FontWeight.w700,
+    size: size,
+    color: color,
+    textAlign: textAlign,
+    maxLines: maxLines,
+    overflow: overflow,
+    height: height,
+    decoration: decoration,
+    fontFamily: fontFamily,
+  );
+
+  /// Texto com peso **extraBold** (w800)
+  static Text extraBold(
+    String data, {
+    double size = 14,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    TextOverflow? overflow,
+    double? height,
+    TextDecoration? decoration,
+    String? fontFamily,
+  }) => _buildText(
+    data,
+    weight: FontWeight.w800,
+    size: size,
+    color: color,
+    textAlign: textAlign,
+    maxLines: maxLines,
+    overflow: overflow,
+    height: height,
+    decoration: decoration,
+    fontFamily: fontFamily,
+  );
+}
