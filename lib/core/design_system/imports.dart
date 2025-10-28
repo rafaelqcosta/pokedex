@@ -11,12 +11,13 @@ export 'molecules/tags/app_tag.dart';
 // Organisms
 export 'organisms/app_actions.dart';
 export 'organisms/app_card.dart';
+export 'organisms/app_error_message.dart';
 export 'organisms/app_loading.dart';
 export 'organisms/app_nav_bar.dart';
 export 'organisms/app_snackbar_manager.dart';
 export 'organisms/details_bottom_sheet.dart';
-export 'templates/home/app_bar_desktop.dart';
 // Templates
+export 'templates/home/app_bar_desktop.dart';
 export 'templates/home/app_bar_mobile.dart';
 export 'templates/home/app_header_label.dart';
 export 'templates/pokemon_card.dart';

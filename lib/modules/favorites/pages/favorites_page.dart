@@ -36,11 +36,17 @@ class _FavoritesPageState extends State<FavoritesPage> {
             builder: (context, state) {
               final pokemons = state.data ?? [];
               if (state.isError) {
-                return Center(child: AppText.regular(state.failure?.message ?? ''));
+                return AppErrorMessage(
+                  message: state.failure?.message ?? 'Ops... erro desconhecido',
+                  errorType: AppErrorType.failure,
+                );
               }
 
               if (pokemons.isEmpty) {
-                return Center(child: AppText.regular('Sem pokémons favoritos'));
+                return AppErrorMessage(
+                  message: 'Você ainda não possui nenhum Pokémon favorito',
+                  errorType: AppErrorType.empty,
+                );
               }
 
               return ValueListenableBuilder(

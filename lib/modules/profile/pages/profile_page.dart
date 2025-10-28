@@ -9,7 +9,9 @@ class ProfilePage extends StatelessWidget {
     return Column(
       children: [
         AppHeaderTitle(title: 'Tela de Perfil'),
-        Expanded(child: Center(child: Text('Em desenvolvimento'))),
+        Expanded(
+          child: AppErrorMessage(message: 'Em desesenvolvimento', errorType: AppErrorType.building),
+        ),
       ],
     );
   }

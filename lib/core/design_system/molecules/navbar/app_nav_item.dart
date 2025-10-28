@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/core/design_system/imports.dart';
 
 class AppNavItem extends StatelessWidget {
-  final Widget icon;
+  final NavbarIcons icon;
   final String label;
   final bool isActive;
   final VoidCallback onTap;
@@ -30,10 +30,7 @@ class AppNavItem extends StatelessWidget {
             ? Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  IconTheme(
-                    data: IconThemeData(color: color, size: 28),
-                    child: icon,
-                  ),
+                  AppIcon.navbar(icon, size: 28, color: color),
                   const SizedBox(height: 4),
                   AppText.regular(label, size: 12, color: color),
                 ],
@@ -41,12 +38,9 @@ class AppNavItem extends StatelessWidget {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  IconTheme(
-                    data: IconThemeData(color: color, size: 28),
-                    child: icon,
-                  ),
+                  AppIcon.navbar(icon, size: 22, color: color),
                   const SizedBox(width: 8),
-                  AppText.semiBold(label, size: 24, color: color),
+                  AppText.semiBold(label, size: 20, color: color),
                 ],
               ),
       ),

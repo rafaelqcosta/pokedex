@@ -33,21 +33,21 @@ class AppNavbar extends StatelessWidget {
 
               children: [
                 AppNavItem(
-                  icon: const Icon(Icons.home_outlined),
+                  icon: NavbarIcons.home,
                   label: 'Home',
                   isActive: currentIndex == 0,
                   onTap: () => onTap(0),
                   isMobile: isMobile,
                 ),
                 AppNavItem(
-                  icon: const Icon(Icons.catching_pokemon_outlined),
+                  icon: NavbarIcons.favorites,
                   label: 'Favoritos',
                   isActive: currentIndex == 1,
                   onTap: () => onTap(1),
                   isMobile: isMobile,
                 ),
                 AppNavItem(
-                  icon: const Icon(Icons.person_outline),
+                  icon: NavbarIcons.profile,
                   label: 'Perfil',
                   isActive: currentIndex == 2,
                   onTap: () => onTap(2),
@@ -60,21 +60,21 @@ class AppNavbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               AppNavItem(
-                icon: const Icon(Icons.home_outlined),
+                icon: NavbarIcons.home,
                 label: 'Home',
                 isActive: currentIndex == 0,
                 onTap: () => onTap(0),
                 isMobile: isMobile,
               ),
               AppNavItem(
-                icon: const Icon(Icons.catching_pokemon_outlined),
+                icon: NavbarIcons.favorites,
                 label: 'Favoritos',
                 isActive: currentIndex == 1,
                 onTap: () => onTap(1),
                 isMobile: isMobile,
               ),
               AppNavItem(
-                icon: const Icon(Icons.person_outline),
+                icon: NavbarIcons.profile,
                 label: 'Perfil',
                 isActive: currentIndex == 2,
                 onTap: () => onTap(2),

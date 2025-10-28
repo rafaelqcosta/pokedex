@@ -53,13 +53,17 @@ class _HomePageState extends State<HomePage> {
             bloc: getPokemonsBloc,
             builder: (context, state) {
               if (state.isError) {
-                return Center(child: AppText.regular(state.failure?.message ?? ''));
+                return AppErrorMessage(
+                  message: state.failure?.message ?? 'Ops... erro desconhecido',
+                  errorType: AppErrorType.failure,
+                  onRetry: fetch,
+                );
               } else if (state.isLoading) {
                 return const AppLoading();
               }
               final pokemons = state.data?.pokemons ?? [];
               if (pokemons.isEmpty) {
-                return Center(child: AppText.regular('Sem pokémons'));
+                return AppErrorMessage(message: 'Nenhum Pokémon encontrado', onRetry: fetch);
               }
 
               return ValueListenableBuilder(

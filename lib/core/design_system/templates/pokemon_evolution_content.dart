@@ -42,7 +42,7 @@ class PokemonDetailContent extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  width: isMobile.value ? MediaQuery.of(context).size.width : bottomSheetWidth,
+                  width: bottomSheetMaxWidth,
                   color: AppColors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
