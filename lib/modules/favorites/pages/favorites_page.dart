@@ -27,10 +27,8 @@ class _FavoritesPageState extends State<FavoritesPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 38),
-          child: AppText.semiBold('Qual Pokémon você está procurando?', size: 32),
-        ),
+        AppHeaderTitle(title: 'Meus Pokémons favoritos'),
+
         Expanded(
           child: BlocBuilder<FavoritePokemonsBloc, BaseState<List<PokemonModel>>>(
             bloc: favoritePokemonsBloc,

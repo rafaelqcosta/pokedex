@@ -18,9 +18,11 @@ export 'organisms/details_bottom_sheet.dart';
 export 'templates/home/app_bar_desktop.dart';
 // Templates
 export 'templates/home/app_bar_mobile.dart';
+export 'templates/home/app_header_label.dart';
 export 'templates/pokemon_card.dart';
 export 'templates/pokemon_evolution_content.dart';
 export 'templates/pokemon_evolution_row.dart';
+// Theme
 export 'theme/app_theme.dart';
 export 'theme/color_schemes.dart';
 // Tokens

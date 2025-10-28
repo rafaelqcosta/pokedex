@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/app_widget.dart';
 import 'package:pokedex/core/constants/constants.dart';
 import 'package:pokedex/core/design_system/imports.dart';
 import 'package:pokedex/modules/home/domain/models/evolution_model.dart';
@@ -41,6 +42,7 @@ class PokemonDetailContent extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
+                  width: isMobile.value ? MediaQuery.of(context).size.width : bottomSheetWidth,
                   color: AppColors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

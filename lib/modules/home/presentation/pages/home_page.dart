@@ -46,10 +46,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 38),
-          child: AppText.semiBold('Qual Pokémon você está procurando?', size: 32),
-        ),
+        AppHeaderTitle(title: 'Qual Pokémon você está procurando?'),
+
         Expanded(
           child: BlocBuilder<GetPokemonsBloc, BaseState<PaginatedPokemons>>(
             bloc: getPokemonsBloc,
@@ -57,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               if (state.isError) {
                 return Center(child: AppText.regular(state.failure?.message ?? ''));
               } else if (state.isLoading) {
-                return const Center(child: CircularProgressIndicator());
+                return const AppLoading();
               }
               final pokemons = state.data?.pokemons ?? [];
               if (pokemons.isEmpty) {

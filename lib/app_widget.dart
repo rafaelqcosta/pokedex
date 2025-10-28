@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pokedex/core/constants/constants.dart';
 
 ValueNotifier<bool> isMobile = ValueNotifier(false);
 
@@ -17,7 +18,7 @@ class AppWidget extends StatelessWidget {
       builder: (context, child) {
         return LayoutBuilder(
           builder: (context, constraints) {
-            isMobile.value = constraints.maxWidth < 840;
+            isMobile.value = constraints.maxWidth < wideScreen;
             print(constraints.maxWidth);
             return child!;
           },

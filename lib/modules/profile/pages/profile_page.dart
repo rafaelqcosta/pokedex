@@ -8,10 +8,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 38),
-          child: AppText.semiBold('Meu Perfil', size: 32),
-        ),
+        AppHeaderTitle(title: 'Tela de Perfil'),
         Expanded(child: Center(child: Text('Em desenvolvimento'))),
       ],
     );

@@ -28,7 +28,6 @@ class PokemonBottomSheet extends StatelessWidget {
       context: context,
       isScrollControlled: isScrollControlled,
       backgroundColor: Colors.transparent,
-
       builder: (_) => FractionallySizedBox(
         heightFactor: initialHeight,
         child: PokemonBottomSheet(
@@ -43,31 +42,33 @@ class PokemonBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(28),
-            topRight: Radius.circular(28),
-          ),
-          child: ClipPath(
-            clipper: DiagonalTopClipper(),
-            child: Container(
-              decoration: BoxDecoration(
-                color: backgroundColor ?? AppColors.white,
-                boxShadow: appBoxShadows,
+    return SizedBox(
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(28),
+              topRight: Radius.circular(28),
+            ),
+            child: ClipPath(
+              clipper: DiagonalTopClipper(),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: backgroundColor ?? AppColors.white,
+                  boxShadow: appBoxShadows,
+                ),
               ),
             ),
           ),
-        ),
-        Positioned(
-          left: 5,
-          bottom: MediaQuery.of(context).size.height * 0.45,
-          child: AppImage.png(PngImgs.pokeball),
-        ),
 
-        child,
-      ],
+          Positioned(
+            left: 5,
+            bottom: MediaQuery.of(context).size.height * 0.45,
+            child: AppImage.png(PngImgs.pokeball),
+          ),
+          child,
+        ],
+      ),
     );
   }
 }
