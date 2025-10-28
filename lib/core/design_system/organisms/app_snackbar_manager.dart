@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/app_widget.dart';
 import 'package:pokedex/core/design_system/imports.dart';
 
 class AppSnackbarManager {
@@ -15,10 +16,13 @@ class AppSnackbarManager {
 
     final overlay = Overlay.of(context);
 
+    double paddingTop = isMobile.value ? 40 : 100;
+    double paddingRight = isMobile.value ? 18 : (MediaQuery.of(context).size.width * 0.05) + 100;
+
     final entry = OverlayEntry(
       builder: (_) => Positioned(
-        top: MediaQuery.of(context).padding.top + kToolbarHeight + 40,
-        right: 18,
+        top: MediaQuery.of(context).padding.top + kToolbarHeight + paddingTop,
+        right: paddingRight,
         child: AnimatedOpacity(
           opacity: 1,
           duration: const Duration(milliseconds: 200),

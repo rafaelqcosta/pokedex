@@ -27,21 +27,11 @@ class AppBarDesktop extends StatelessWidget implements PreferredSizeWidget {
               AppActions(onSettingsPressed: () {}, onNotificationsPressed: () {}, isMobile: false),
             ],
           ),
-          // SafeArea(
-          //   child: Align(
-          //     alignment: Alignment.topCenter,
-          //     child: Padding(
-          //       padding: const EdgeInsets.only(top: 18),
-          //       child: Column(spacing: 56, children: [Expanded(child: child)]),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(146 + 12);
 }

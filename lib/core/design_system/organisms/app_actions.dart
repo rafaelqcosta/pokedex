@@ -19,18 +19,27 @@ class AppActions extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
-          AppIconButton(
-            icon: AppIcon.others(OtherIcons.gear, size: 26, color: AppColors.gray3),
-            onTap: onSettingsPressed,
-          ),
+          isMobile ? _buildSettings() : _buildNotifications(),
+
           isMobile ? const Spacer() : const SizedBox(width: 40),
 
-          AppIconButton(
-            icon: AppIcon.others(OtherIcons.bell, size: 26, color: AppColors.gray3),
-            onTap: onNotificationsPressed,
-          ),
+          isMobile ? _buildNotifications() : _buildSettings(),
         ],
       ),
+    );
+  }
+
+  AppIconButton _buildNotifications() {
+    return AppIconButton(
+      icon: AppIcon.others(OtherIcons.bell, size: 26, color: AppColors.gray3),
+      onTap: onNotificationsPressed,
+    );
+  }
+
+  AppIconButton _buildSettings() {
+    return AppIconButton(
+      icon: AppIcon.others(OtherIcons.gear, size: 26, color: AppColors.gray3),
+      onTap: onSettingsPressed,
     );
   }
 }
