@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/app_widget.dart';
 import 'package:pokedex/core/design_system/imports.dart';
 import 'package:pokedex/modules/favorites/pages/favorites_page.dart';
 import 'package:pokedex/modules/home/presentation/pages/home_page.dart';
@@ -18,12 +19,26 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(index: currentIndex, children: pages),
-      bottomNavigationBar: AppNavbar(
-        currentIndex: currentIndex,
-        onTap: (index) => setState(() => currentIndex = index),
-      ),
+    return ValueListenableBuilder(
+      valueListenable: isMobile,
+      builder: (context, isMobile, child) {
+        return Scaffold(
+          appBar: isMobile
+              ? AppBarMobile()
+              : AppBarDesktop(
+                  currentIndex: currentIndex,
+                  onTap: (index) => setState(() => currentIndex = index),
+                ),
+          body: IndexedStack(index: currentIndex, children: pages),
+          bottomNavigationBar: isMobile
+              ? AppNavbar(
+                  currentIndex: currentIndex,
+                  onTap: (index) => setState(() => currentIndex = index),
+                  isMobile: isMobile,
+                )
+              : const SizedBox.shrink(),
+        );
+      },
     );
   }
 }

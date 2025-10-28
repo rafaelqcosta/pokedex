@@ -63,7 +63,7 @@ class PokemonCard extends StatelessWidget {
               Positioned(right: -16, top: -10, child: AppImage.png(PngImgs.pokeball)),
               Positioned(
                 bottom: 0,
-                right: MediaQuery.of(context).size.width * 0.15,
+                right: 80,
                 child: CachedNetworkImage(
                   imageUrl: '$pokemonBaseUrlImage${pokemon.id}.png',
                   height: 124,

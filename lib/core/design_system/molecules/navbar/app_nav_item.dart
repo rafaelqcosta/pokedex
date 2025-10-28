@@ -6,6 +6,7 @@ class AppNavItem extends StatelessWidget {
   final String label;
   final bool isActive;
   final VoidCallback onTap;
+  final bool isMobile;
 
   const AppNavItem({
     super.key,
@@ -13,6 +14,7 @@ class AppNavItem extends StatelessWidget {
     required this.label,
     required this.isActive,
     required this.onTap,
+    required this.isMobile,
   });
 
   @override
@@ -24,17 +26,29 @@ class AppNavItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconTheme(
-              data: IconThemeData(color: color, size: 26),
-              child: icon,
-            ),
-            const SizedBox(height: 4),
-            AppText.regular(label, size: 12, color: color),
-          ],
-        ),
+        child: isMobile
+            ? Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconTheme(
+                    data: IconThemeData(color: color, size: 28),
+                    child: icon,
+                  ),
+                  const SizedBox(height: 4),
+                  AppText.regular(label, size: 12, color: color),
+                ],
+              )
+            : Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconTheme(
+                    data: IconThemeData(color: color, size: 28),
+                    child: icon,
+                  ),
+                  const SizedBox(width: 8),
+                  AppText.semiBold(label, size: 24, color: color),
+                ],
+              ),
       ),
     );
   }
