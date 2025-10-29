@@ -165,7 +165,6 @@ class _HomePageState extends State<HomePage> {
           context,
           showHandle: false,
           backgroundColor: pokemon.elements.first.cardColor,
-
           child: PokemonDetailContent(
             onFavoriteTap: () => favoritePokemonsBloc.update(pokemon),
             isFavorite: isFavorite,

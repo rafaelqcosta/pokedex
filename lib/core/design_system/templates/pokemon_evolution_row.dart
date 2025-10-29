@@ -34,9 +34,7 @@ class PokemonEvolutionRow extends StatelessWidget {
                   padding: EdgeInsets.only(
                     left: 8,
                     right: 8,
-                    top: MediaQuery.of(context).size.width >= 640
-                        ? bottomSheetMaxWidth * 0.23
-                        : (MediaQuery.of(context).size.width * 0.1) + 80,
+                    top: MediaQuery.of(context).size.width >= 640 ? bottomSheetMaxWidth * 0.23 : 60,
                     bottom: 0,
                   ),
                   child: AppIcon.others(OtherIcons.arrow, size: 7, color: AppColors.gray3),
