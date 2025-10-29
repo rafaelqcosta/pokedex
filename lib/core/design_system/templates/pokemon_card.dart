@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/constants/constants.dart';
 import 'package:pokedex/core/design_system/imports.dart';
+import 'package:pokedex/core/utils/parse_utils.dart';
 import 'package:pokedex/modules/home/domain/models/pokemon_model.dart';
 
 class PokemonCard extends StatelessWidget {
@@ -45,7 +46,7 @@ class PokemonCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          AppText.regular('#${index.toString().padLeft(3, '0')}', size: 12),
+                          AppText.regular(parseId(pokemon.id), size: 12),
                           const SizedBox(height: 4),
                           AppText.bold(pokemon.name, size: 28),
                           const SizedBox(height: 8),

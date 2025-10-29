@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/design_system/imports.dart';
+import 'package:pokedex/core/utils/parse_utils.dart';
 
 extension AppText on Text {
+  static TextStyle get defaultStyle => const TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+    height: 1.2,
+    decoration: TextDecoration.none,
+  );
+
   /// Função base que constrói o Text com estilo tipográfico padrão.
   static Text _buildText(
     String data, {
@@ -16,7 +26,7 @@ extension AppText on Text {
     String? fontFamily,
   }) {
     return Text(
-      data,
+      capitalize(data),
       textAlign: textAlign,
       maxLines: maxLines,
       overflow: overflow,
@@ -43,7 +53,7 @@ extension AppText on Text {
     TextDecoration? decoration,
     String? fontFamily,
   }) => _buildText(
-    data,
+    capitalize(data),
     weight: FontWeight.w400,
     size: size,
     color: color,
@@ -67,7 +77,7 @@ extension AppText on Text {
     TextDecoration? decoration,
     String? fontFamily,
   }) => _buildText(
-    data,
+    capitalize(data),
     weight: FontWeight.w500,
     size: size,
     color: color,
@@ -91,7 +101,7 @@ extension AppText on Text {
     TextDecoration? decoration,
     String? fontFamily,
   }) => _buildText(
-    data,
+    capitalize(data),
     weight: FontWeight.w600,
     size: size,
     color: color,
@@ -115,7 +125,7 @@ extension AppText on Text {
     TextDecoration? decoration,
     String? fontFamily,
   }) => _buildText(
-    data,
+    capitalize(data),
     weight: FontWeight.w700,
     size: size,
     color: color,
@@ -139,7 +149,7 @@ extension AppText on Text {
     TextDecoration? decoration,
     String? fontFamily,
   }) => _buildText(
-    data,
+    capitalize(data),
     weight: FontWeight.w800,
     size: size,
     color: color,

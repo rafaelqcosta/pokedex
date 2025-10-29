@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/app_widget.dart';
 import 'package:pokedex/core/constants/constants.dart';
 import 'package:pokedex/core/design_system/imports.dart';
+import 'package:pokedex/core/utils/parse_utils.dart';
 import 'package:pokedex/modules/home/domain/models/evolution_model.dart';
 
 class PokemonEvolutionRow extends StatelessWidget {
@@ -13,24 +14,34 @@ class PokemonEvolutionRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width >= 640
+        ? bottomSheetMaxWidth
+        : MediaQuery.of(context).size.width;
     return SizedBox(
-      width: MediaQuery.of(context).size.width >= 640
-          ? bottomSheetMaxWidth
-          : MediaQuery.of(context).size.width,
+      width: width,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             for (int i = 0; i < evolutions.length; i++) ...[
-              _EvolutionItem(pokemon: evolutions[i], icon: icon),
+              Flexible(
+                child: _EvolutionItem(pokemon: evolutions[i], icon: icon),
+              ),
 
-              // if (i != evolutions.length - 1)
-              //   const Padding(
-              //     padding: EdgeInsets.only(left: 8, right: 8, top: 80, bottom: 0),
-              //     child: Icon(Icons.arrow_forward, size: 20, color: Colors.grey),
-              //   ),
-              SizedBox(width: 12),
+              if (i != evolutions.length - 1)
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 8,
+                    right: 8,
+                    top: MediaQuery.of(context).size.width >= 640
+                        ? bottomSheetMaxWidth * 0.23
+                        : (MediaQuery.of(context).size.width * 0.1) + 80,
+                    bottom: 0,
+                  ),
+                  child: AppIcon.others(OtherIcons.arrow, size: 7, color: AppColors.gray3),
+                ),
+              // SizedBox(width: 12),
             ],
           ],
         ),
@@ -52,8 +63,6 @@ class _EvolutionItem extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 100,
-          height: 100,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(color: color, width: 1.5),
@@ -68,21 +77,31 @@ class _EvolutionItem extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AppText.medium(pokemon.name, size: 16, color: AppColors.gray3),
-            const SizedBox(width: 4),
-            AppText.regular(
-              '#${pokemon.id.toString().padLeft(3, '0')}',
-              size: 10,
-              color: AppColors.gray3,
+        SizedBox(
+          height: 40,
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: '${capitalize(pokemon.name)} ',
+                  style: AppText.defaultStyle.copyWith(
+                    color: AppColors.gray3,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                WidgetSpan(
+                  alignment: PlaceholderAlignment.middle,
+                  child: Text(
+                    '#${parseId(pokemon.id)}',
+                    style: AppText.defaultStyle.copyWith(color: AppColors.gray3, fontSize: 10),
+                  ),
+                ),
+              ],
             ),
-          ],
+            textAlign: TextAlign.center,
+          ),
         ),
-
-        const SizedBox(height: 12),
 
         AppTag(type: icon),
       ],

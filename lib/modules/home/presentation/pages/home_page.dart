@@ -153,18 +153,22 @@ class _HomePageState extends State<HomePage> {
     BaseState<List<PokemonModel>> favState,
     BuildContext context,
   ) {
+    final isFavorite = favState.data?.any((p) => p.id == pokemon.id) ?? false;
     return PokemonCard(
       onFavoriteTap: () => favoritePokemonsBloc.update(pokemon),
       index: index,
       pokemon: pokemon,
-      isFavorite: favState.data?.any((p) => p.id == pokemon.id) ?? false,
+      isFavorite: isFavorite,
       onTap: () async {
         await getEvolutionBloc.load(pokemon.id);
         PokemonBottomSheet.show(
           context,
           showHandle: false,
           backgroundColor: pokemon.elements.first.cardColor,
+
           child: PokemonDetailContent(
+            onFavoriteTap: () => favoritePokemonsBloc.update(pokemon),
+            isFavorite: isFavorite,
             pokemon: pokemon,
             evolutions: getEvolutionBloc.state.data ?? [],
           ),

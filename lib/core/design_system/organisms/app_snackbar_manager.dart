@@ -14,7 +14,7 @@ class AppSnackbarManager {
   }) {
     _currentSnackbar?.remove();
 
-    final overlay = Overlay.of(context);
+    final overlay = Overlay.of(context, rootOverlay: true);
 
     double paddingTop = isMobile.value ? 40 : 100;
     double paddingRight = isMobile.value ? 18 : (MediaQuery.of(context).size.width * 0.05) + 100;

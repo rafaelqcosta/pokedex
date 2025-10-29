@@ -28,6 +28,8 @@ class PokemonBottomSheet extends StatelessWidget {
       context: context,
       isScrollControlled: isScrollControlled,
       backgroundColor: Colors.transparent,
+      useRootNavigator: false,
+
       builder: (_) => FractionallySizedBox(
         heightFactor: initialHeight,
         child: PokemonBottomSheet(

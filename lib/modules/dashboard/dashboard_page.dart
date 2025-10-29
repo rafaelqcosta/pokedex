@@ -30,6 +30,7 @@ class _MainPageState extends State<MainPage> {
                   onTap: (index) => setState(() => currentIndex = index),
                 ),
           body: IndexedStack(index: currentIndex, children: pages),
+
           bottomNavigationBar: isMobile
               ? AppNavbar(
                   currentIndex: currentIndex,
