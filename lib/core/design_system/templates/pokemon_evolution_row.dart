@@ -39,7 +39,6 @@ class PokemonEvolutionRow extends StatelessWidget {
                   ),
                   child: AppIcon.others(OtherIcons.arrow, size: 7, color: AppColors.gray3),
                 ),
-              // SizedBox(width: 12),
             ],
           ],
         ),
