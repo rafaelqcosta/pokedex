@@ -12,7 +12,6 @@ extension AppText on Text {
     decoration: TextDecoration.none,
   );
 
-  /// Função base que constrói o Text com estilo tipográfico padrão.
   static Text _buildText(
     String data, {
     required FontWeight weight,
@@ -41,7 +40,6 @@ extension AppText on Text {
     );
   }
 
-  /// Texto com peso **regular** (w400)
   static Text regular(
     String data, {
     double size = 14,
@@ -65,7 +63,6 @@ extension AppText on Text {
     fontFamily: fontFamily,
   );
 
-  /// Texto com peso **medium** (w500)
   static Text medium(
     String data, {
     double size = 14,
@@ -89,7 +86,6 @@ extension AppText on Text {
     fontFamily: fontFamily,
   );
 
-  /// Texto com peso **semibold** (w600)
   static Text semiBold(
     String data, {
     double size = 14,
@@ -113,7 +109,6 @@ extension AppText on Text {
     fontFamily: fontFamily,
   );
 
-  /// Texto com peso **bold** (w700)
   static Text bold(
     String data, {
     double size = 14,
@@ -137,7 +132,6 @@ extension AppText on Text {
     fontFamily: fontFamily,
   );
 
-  /// Texto com peso **extraBold** (w800)
   static Text extraBold(
     String data, {
     double size = 14,

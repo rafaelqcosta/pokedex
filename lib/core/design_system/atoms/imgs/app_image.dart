@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokedex/core/design_system/imports.dart';
-// imports.dart deve expor seus enums PngImgs e SvgImgs
 
 class AppImage {
   AppImage._();

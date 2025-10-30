@@ -23,7 +23,6 @@ enum PokemonIcons {
 }
 
 extension PokemonIconsExtension on PokemonIcons {
-  /// Label exibido na tag
   String get label {
     switch (this) {
       case PokemonIcons.fire:
@@ -65,7 +64,6 @@ extension PokemonIconsExtension on PokemonIcons {
     }
   }
 
-  /// Cor de fundo da tag
   Color get tagColor {
     switch (this) {
       case PokemonIcons.fire:
@@ -107,7 +105,6 @@ extension PokemonIconsExtension on PokemonIcons {
     }
   }
 
-  /// Cor de fundo do card
   Color get cardColor {
     switch (this) {
       case PokemonIcons.fire:

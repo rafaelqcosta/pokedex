@@ -36,9 +36,7 @@ class _PokemonDetailContentState extends State<PokemonDetailContent> {
 
   @override
   Widget build(BuildContext context) {
-    return
-    // Header com gradiente e imagem
-    Stack(
+    return Stack(
       clipBehavior: Clip.none,
       fit: StackFit.expand,
       children: [
@@ -56,8 +54,7 @@ class _PokemonDetailContentState extends State<PokemonDetailContent> {
           top: 200,
           left: 0,
           bottom: 0,
-          child: // Seção de Evolução
-          Container(
+          child: Container(
             color: AppColors.gray8,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

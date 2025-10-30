@@ -17,14 +17,12 @@ class PokemonRepositoryImpl implements PokemonRepository {
       final results = response['results'] as List;
       final next = response['next'] as String?;
 
-      // Obter IDs de cada Pokémon
       final pokemons = <PokemonModel>[];
 
       for (final json in results) {
         final uri = Uri.parse(json['url']);
         final id = int.tryParse(uri.pathSegments[uri.pathSegments.length - 2]) ?? 0;
 
-        // Buscar detalhes de cada Pokémon
         try {
           final detail = await datasource.getPokemonDetails(id);
           pokemons.add(PokemonModel.fromApi(detail));

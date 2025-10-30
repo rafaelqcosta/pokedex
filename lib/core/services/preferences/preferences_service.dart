@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPrefsStorageService {
   SharedPreferences? _prefs;
 
-  /// Inicializa o SharedPreferences (lazy load)
   Future<void> _init() async {
     _prefs ??= await SharedPreferences.getInstance();
   }
@@ -24,7 +23,6 @@ class SharedPrefsStorageService {
     } else if (value is List<String>) {
       await _prefs!.setStringList(key, value);
     } else {
-      // Para objetos complexos, salva como JSON
       await _prefs!.setString(key, jsonEncode(value));
     }
   }

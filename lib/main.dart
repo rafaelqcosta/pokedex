@@ -21,18 +21,3 @@ void main() async {
   }
   runApp(ModularApp(module: AppModule(), child: const AppWidget()));
 }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: AppTheme.light,
-//       darkTheme: AppTheme.dark,
-//       themeMode: ThemeMode.system,
-//       home:
-//     );
-//   }
-// }

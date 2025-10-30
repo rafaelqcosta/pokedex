@@ -1,4 +1,3 @@
-// app_module.dart
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:pokedex/app_routes.dart';
 import 'package:pokedex/core/services/http/dio_http_service.dart';
